@@ -10,14 +10,11 @@ class fecha:
             age = datetime.strptime(age_cadena, "%Y-%m-%d").date()
             self.age = age
         except ValueError:
-            return None
+            return None # La fecha no es válida
         
-        try:
-            if self.age > date.today():
-                return False  # La fecha es futura
-            return True  # La fecha es válida y no es futura
-        except ValueError:
-            return None  # La fecha no es válida
+        if self.age > date.today():
+            return False  # La fecha es futura
+        return True  # La fecha es válida y no es futura
         
     def underage(self):
         today = date.today()
@@ -103,10 +100,3 @@ class Pokemon:
         self.hp = 0
         self.level = 0
         self.name = name
-
-        
-
-
-
-
-

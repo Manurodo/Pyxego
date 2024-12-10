@@ -57,9 +57,18 @@ class Compañero:
         self.age += 1
         return f"{self.name} acaba de tener un cumpleaños, ahora tiene {self.age} años"
     
+    def show_age(self):
+        return f"{self.name} tiene {self.age} años"
+    
     def add_note(self, note):
         self.notes.append(note)
-        return f"{self.name} añadio una nueva nota"
+        return f"{self.name} añadio {note} a sus notas"
+    
+    def show_notes(self):
+        if self.notes:
+            return f"Las notas de {self.name} son: {','.join(self.notes)}"
+        else:
+            return f"El alumno {self.name} no tiene notas"
     
     def add_friend(self, friend):
         self.friends.append(friend)
@@ -68,15 +77,11 @@ class Compañero:
     def info(self):
         return print(f"{self.name}, {self.age}, {self.sex}, {self.telf}, {self.hobbies}, {self.friends}, {self.notes}") 
     
-    def date_of_birth(self):
-
-        return 
 
 class BankAccount:
-    def __init__(self, acc_num, name):
+    def __init__(self, acc_num):
         self.acc_num = acc_num
         self.balance = 0
-        self.name = name
         
     def depositar(self, ammount):
         ammount = float (ammount)
